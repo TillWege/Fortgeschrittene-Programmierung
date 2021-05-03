@@ -1,0 +1,17 @@
+#body {
+    padding: 0;
+    margin: 0;
+}
+
+#div1 {
+    background-color: Black;
+    height: 600px;
+    width: 400px;
+}
+
+#div2 {
+    background-color: red;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}

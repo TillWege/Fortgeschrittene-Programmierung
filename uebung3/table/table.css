@@ -1,0 +1,47 @@
+#stundenplan tr:nth-child(odd){
+    background-color: grey;
+}
+
+#stundenplan tr:nth-child(even){
+    background-color: darkgrey;
+}
+
+#stundenplan tr{
+    font-size: 30px;
+}
+
+#stundenplan th{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.Test{
+  border: 5px solid;
+  padding: 5px;
+}
+
+.Headings{
+    background-color: darkgrey;
+    margin-top: 10px;
+}
+
+.Time{
+    color: black;
+}
+
+.FP{
+    background-color: aqua;
+}
+
+.MG{
+    background-color: lightyellow;
+}
+
+.TI{
+    background-color: lightblue;
+}
+
+.Free{
+    background-color: lightgreen;
+}
+

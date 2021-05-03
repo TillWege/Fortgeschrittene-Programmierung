@@ -1,0 +1,64 @@
+#object1{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: black;
+}
+#object2{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: red;
+}
+#object3{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#object4{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#object5{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#object6{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: purple; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttonnumber{
+    margin-right: 50px;
+    font-size: 25px;
+}
+#object7{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: lightcoral; 
+}
+#object8{
+    width: 250px;
+    height: 250px;
+    float: left;
+    background-color: green; 
+}

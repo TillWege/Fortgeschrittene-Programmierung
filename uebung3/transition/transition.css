@@ -1,0 +1,15 @@
+#rect {
+	transform-origin: bottom right;
+	background-color: blue;
+	width: 100px;
+	height: 200px;
+	transition: 2s;
+	background-color: blue;
+	transform: rotate(0);
+}
+
+#rect:hover {
+	transition: 2s;
+	background-color: red;
+	transform: rotate(90deg);
+}

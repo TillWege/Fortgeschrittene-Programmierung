@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="Form.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="Form.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="container">
+        <form id="form">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Name</span>
+                </div>
+                <input type="text" id="vorname" class="form-control" placeholder="Vorname" data-toggle="tooltip" title="Vorname wird benötigt">
+                <input type="text" id="nachname" class="form-control" placeholder="Nachname" data-toggle="tooltip" title="Nachname wird benötigt">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                <input id="email" type="email" class="form-control" id="exampleInputEmail1" data-toggle="tooltip" title="Email muss mit dem Muster xxxx.xxxx@xxxx" placeholder="Email">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Geburtsdatum</span>
+                </div>
+                <input id="datum" class="form-control" type="date" id="Geburtsdatum" data-toggle="tooltip" title="Mindestalter: 18Jahre">
+            </div>
+            <div class="input-group mb-3">
+                <div class="inout-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Telefonnummer</span>
+                </div>
+                <input id="tel" class="form-control" type="tel" placeholder="+490123456789" data-toggle="tooltip" title="Telefonnummer wird benötigt">
+            </div>
+            <div class="input-group mb-3">
+                <div class="inout-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Adresse</span>
+                </div>
+                <input id="addresse" class="form-control" placeholder="Adresse" data-toggle="tooltip" title="Adresse wird benötigt">
+            </div>
+            <div class="col text-center">
+                <button type="button" id="btn" class="btn btn-primary">Abschicken</button>
+            </div>
+        </form>
+        <div id="successmessage" class="alert alert-success text-center" data-dismiss="alert" role="alert">
+            Erfolg!
+        </div>
+    </div>
+
+
+</body>
+
+</html>

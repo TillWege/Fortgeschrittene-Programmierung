@@ -1,0 +1,34 @@
+.smalline {
+    position: absolute;
+    height: 30px;
+    width: 5px;
+    background-color: black;
+}
+
+.bigline {
+    position: absolute;
+    height: 50px;
+    width: 5px;
+    background-color: black;
+}
+
+.stunde {
+    position: absolute;
+    height: 200px;
+    width: 15px;
+    background-color: black;
+}
+
+.minute {
+    position: absolute;
+    height: 215px;
+    width: 10px;
+    background-color: black;
+}
+
+.sekunde {
+    position: absolute;
+    height: 230px;
+    width: 5px;
+    background-color: red;
+}
