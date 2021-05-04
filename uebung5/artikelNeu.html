@@ -1,5 +1,8 @@
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><meta charset="utf-8"/>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta charset="utf-8" />
 <title>Test-HTML-Titel</title>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +22,9 @@
             <div class="col-12">
                 <header>
                     <img src="medien/logo.png" alt="Logo">
-                    <a href="index.html"><h2>Hier könnte ihr Name stehen Blog</h2></a>
+                    <a href="index.html">
+                        <h2>Hier könnte ihr Name stehen Blog</h2>
+                    </a>
                     <h4>Navigation</h4>
                 </header>
             </div>
@@ -28,52 +33,46 @@
             <div class="col col-xs-12 col-md-9" id="MainContent">
                 <main>
                     <h2>Neuer Artikel</h2>
-                    <form action="index.html">
+                    <form onsubmit="return false" onClick="saveArticle()">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">Überschrift</div>
+                                <div class="input-group-text">Überschrift</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Überschrift">
+                            <input type="text" class="form-control" id="headinginput" placeholder="Überschrift">
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">Author</div>
+                                <div class="input-group-text">Author</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Author">
+                            <input type="text" class="form-control" id="authorinput" placeholder="Author">
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">Beschreibung</div>
+                                <div class="input-group-text">Beschreibung</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Beschreibung">
+                            <textarea class="form-control" id="descriptioninput" placeholder="Arikelbeschreibung" rows="3"></textarea>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">Beschreibung</div>
+                                <div class="input-group-text">Artikeltext</div>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="textinput" placeholder="Artikeltext" rows="6"></textarea>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">Artikeltext</div>
+                                <div class="input-group-text">Tags (Kommagetrennt)</div>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                        </div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">Tags (Kommagetrennt)</div>
-                            </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Tags (Kommagetrennt)">
+                            <input type="text" class="form-control" id="taginput" placeholder="Tags (Kommagetrennt)">
                         </div>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            <input type="file" class="form-control-file" id="imginput">
                         </div>
                         <button type="submit" class="btn btn-primary">Veröffentlichen</button>
                     </form>
                 </main>
             </div>
             <div class="col col-xs-12 col-md-3" id="Sidebar">
-                <aside>                    
+                <aside>
                     <span class="border-bottom">
                     <form action="login.html">
                         <div class="form-group row">
@@ -108,57 +107,57 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <a href="monatsliste.html"> Januar 2021 </a> <br>
                             <span class="badge badge-primary badge-pill">2</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Februar 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">0</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> März 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">1</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> April 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">4</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Mai 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">7</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Juni 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">0</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Juli 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">0</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> August 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">0</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Juni 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">1</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> September 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">2</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Oktober 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">3</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> November 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <a href="monatsliste.html"> Dezember 2021 </a> <br>
-                            <span class="badge badge-primary badge-pill">10</span>
-                        </li>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Februar 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> März 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> April 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">4</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Mai 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">7</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Juni 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Juli 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> August 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Juni 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> September 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Oktober 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">3</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> November 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">8</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="monatsliste.html"> Dezember 2021 </a> <br>
+                        <span class="badge badge-primary badge-pill">10</span>
+                    </li>
                     </ul>
-                    <div class = "Tagcloud">
+                    <div class="Tagcloud">
                         <a href="tagliste.html"> Tag 1</a>
                         <a href="tagliste.html"> Tag 2</a>
                         <a href="tagliste.html"> Tag 3</a>
@@ -171,11 +170,13 @@
                 <footer>
                     <a href="impressum.html"> Impressum</a> |
                     <a href="kontakt.html"> Kontakt</a> |
-                    <a href="copyright.html"> Copyright</a> 
+                    <a href="copyright.html"> Copyright</a>
                 </footer>
             </div>
         </div>
     </div>
+    <script src="newArticle.js"></script>
+    <script src="data.js"></script>
 </body>
 
 </html>
