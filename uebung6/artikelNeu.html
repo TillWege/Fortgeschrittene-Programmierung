@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<meta charset="utf-8" />
+<title>Test-HTML-Titel</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Testblog</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <header>
+                    <img src="medien/logo.png" alt="Logo">
+                    <a href="index.html">
+                        <h2>Hier könnte ihr Name stehen Blog</h2>
+                    </a>
+                    <h4>Navigation</h4>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-9" id="MainContent">
+                <main>
+                    <h2>Neuer Artikel</h2>
+                    <form onsubmit="return false" onClick="saveArticle()">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Überschrift</div>
+                            </div>
+                            <input type="text" class="form-control" id="headinginput" placeholder="Überschrift">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Author</div>
+                            </div>
+                            <input type="text" class="form-control" id="authorinput" placeholder="Author">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Beschreibung</div>
+                            </div>
+                            <textarea class="form-control" id="descriptioninput" placeholder="Arikelbeschreibung" rows="3"></textarea>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Artikeltext</div>
+                            </div>
+                            <textarea class="form-control" id="textinput" placeholder="Artikeltext" rows="6"></textarea>
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Tags (Kommagetrennt)</div>
+                            </div>
+                            <input type="text" class="form-control" id="taginput" placeholder="Tags (Kommagetrennt)">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" id="imginput">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Veröffentlichen</button>
+                    </form>
+                </main>
+            </div>
+            <div class="col col-xs-12 col-md-3" id="Sidebar">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <footer>
+                    <a href="impressum.html"> Impressum</a> |
+                    <a href="kontakt.html"> Kontakt</a> |
+                    <a href="copyright.html"> Copyright</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="blog.js"></script>
+    <script>
+        $(() => {
+            $('#Sidebar').append(createSidebar(articles))
+            if (location.search.startsWith("?articleid=")) {
+                loadArticle(articles.get(location.search.substring(11)))
+            } else {
+                loadArticle(articles.get(1))
+            }
+        })
+    </script>
+</body>
+
+</html>
