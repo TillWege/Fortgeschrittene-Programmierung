@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <app-header></app-header>
+    <div class="row">
+        <main class="col col-xs-12 col-md-9">
+            <form action="artikelNeu.html">
+                <button type="submit" class="btn btn-primary">Neuer Artikel</button>
+            </form>
+            <div id="Artikel" *ngFor="let a of ArtikelMap | keyvalue">
+                <app-artikel [artikel]="a.value"></app-artikel>
+            </div>
+        </main>
+        <div class="col col-xs-12 col-md-3" id="Sidebar">
+            <app-sidebar [ArtikelList]="ArtikelMap"></app-sidebar>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+<router-outlet></router-outlet>

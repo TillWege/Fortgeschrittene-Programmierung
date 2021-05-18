@@ -1,0 +1,26 @@
+<div id="Artikel" *ngIf="artikel">
+    <article>
+        <div class="Überschriften">
+            <h2><a href="artikel.html?articleid=1">{{artikel.heading}}</a><a href="artikelNeu.html?articleid=1" class="btn btn-dark">Artikel bearbeiten</a></h2>
+            <h3>{{artikel.author}}|{{artikel.publishDate.getDate()}}.{{artikel.publishDate.getMonth()+1}}.{{artikel.publishDate.getFullYear()}}</h3>
+            <h4>{{artikel.description}}</h4>
+            <img src={{artikel.image}}>
+        </div>
+        <div class="Text">
+            <p>{{artikel.text}}</p>
+        </div>
+        <div class="Tag-Informationen">
+            <p class="d-inline">Tags:</p>
+            <p class="d-inline" *ngFor="let Tag of artikel.tags">
+                <span onclick="window.location.href='tagliste.html?tag=Tag1'" class="badge badge-pill badge-primary">{{Tag}}</span>
+            </p>
+        </div>
+        <div class=" Social-Media-Informationen ">
+            <p> Teilen auf
+                <a href="https://twitter.com/intent/tweet?text=artikel.html?articleid=1 ">Twitter</a>|
+                <a href="teilenEmail.html?articleid=1 ">E-Mail</a>|
+                <a href="http://www.facebook.com/sharer.php?u=artikel.html?articleid=1 ">Facebook</a>
+            </p>
+        </div>
+    </article>
+</div>

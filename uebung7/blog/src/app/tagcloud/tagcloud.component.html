@@ -1,0 +1,3 @@
+<div class="Tagcloud">
+    <a href="tagliste.html" [ngStyle]="{'font-size': GetFontsizeOfTag(Tag.key)}" *ngFor="let Tag of TagList| keyvalue">{{Tag.key}} </a>
+</div>
