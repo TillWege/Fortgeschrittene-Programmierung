@@ -1,0 +1,3 @@
+<div class="Tagcloud">
+    <a *ngFor="let Tag of TagList| keyvalue" [routerLink]="['/articles', { tag: Tag.key }]" [ngStyle]="{'font-size': GetFontsizeOfTag(Tag.key)}">{{Tag.key}} </a>
+</div>

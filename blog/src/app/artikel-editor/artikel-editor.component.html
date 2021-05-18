@@ -1,0 +1,37 @@
+<h2>Neuer Artikel</h2>
+<form onsubmit="return false">
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Überschrift</div>
+        </div>
+        <input type="text" class="form-control" name="headinginput" [(ngModel)]="artikel.heading">
+    </div>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Author</div>
+        </div>
+        <input type="text" class="form-control" name="authorinput" [(ngModel)]="artikel.author">
+    </div>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Beschreibung</div>
+        </div>
+        <textarea class="form-control" name="descriptioninput" [(ngModel)]="artikel.description" rows="3"></textarea>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Artikeltext</div>
+            </div>
+            <textarea class="form-control" name="textinput" [(ngModel)]="artikel.text" rows="6"></textarea>
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Tags (Kommagetrennt)</div>
+            </div>
+            <input type="text" class="form-control" name="taginput">
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-control-file" name="imginput">
+        </div>
+        <button type="submit" class="btn btn-primary">Veröffentlichen</button>
+    </div>
+</form>

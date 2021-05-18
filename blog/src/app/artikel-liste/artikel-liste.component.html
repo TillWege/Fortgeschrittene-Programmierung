@@ -1,0 +1,11 @@
+<form action="artikelNeu.html">
+    <button type="submit" class="btn btn-primary">Neuer Artikel</button>
+
+    <a (click)="setCompact()">Kompakt</a> |
+    <a (click)="setFull()">Vollstänadig</a>
+
+
+</form>
+<div class="ArtikelListe">
+    <app-artikel *ngFor="let a of ArtikelMap | keyvalue" [artikelid]="a.key" [showFull]="this.ShowFull"></app-artikel>
+</div>

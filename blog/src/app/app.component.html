@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <app-header></app-header>
+    <div class="row">
+        <main class="col col-xs-12 col-md-9">
+            <router-outlet>
+            </router-outlet>
+        </main>
+        <div class="col col-xs-12 col-md-3" id="Sidebar">
+            <app-sidebar [ArtikelList]="ArtikelMap"></app-sidebar>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,23 @@
+<aside>
+    <form action="login.html">
+        <div class="form-group row"><label for="usernameinput" class="col-sm-3 col-form-label">Benutzername</label>
+            <div class="col-sm-7"><input type="text" class="form-control" id="usernameinput" placeholder="Benutzername"></div>
+        </div>
+        <div class="form-group row"><label for="passwordinput" class="col-sm-3 col-form-label">Passwort</label>
+            <div class="col-sm-7"><input type="password" class="form-control" id="passwordinput" placeholder="Passwort"></div>
+        </div>
+        <div class="col">
+            <div class="form-group row"><button type="submit" class="btn btn-outline-primary">Login</button></div>
+        </div>
+    </form>
+    <form action="suchergebnis.html">
+        <div class="form-group row no-gutters">
+            <div class="col-8">
+                <input class="form-control" name="search " type="text" placeholder="Suchen..." [(ngModel)]="this.Query">
+            </div>
+            <button [routerLink]="['/articles', { query: this.Query }]" class="btn btn-outline-primary" type="submit">Suchen</button>
+        </div>
+    </form>
+    <app-monthlist [ArtikelList]="ArtikelList"></app-monthlist>
+    <app-tagcloud [ArtikelList]="ArtikelList"></app-tagcloud>
+</aside>
