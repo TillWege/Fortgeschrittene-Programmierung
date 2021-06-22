@@ -6,7 +6,7 @@ var app = express();
 app.use(express.json())
 var server = http.createServer(app);
 // Wichtig! Synchrone version nutzen um Race condition zu verhindern
-let jsondata = fs.readFileSync("C:\\Uni\\SemesterII\\Web\\server2\\articles.json")
+let jsondata = fs.readFileSync("./articles.json")
 let articles = new Map(JSON.parse(jsondata))
 
 server.listen(3000);
