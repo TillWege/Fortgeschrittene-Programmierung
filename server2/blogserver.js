@@ -1,9 +1,11 @@
 var fs = require('fs');
 var http = require('http');
 var express = require('express');
+var cors = require('cors')
 
 var app = express();
 app.use(express.json())
+app.use(cors())
 var server = http.createServer(app);
 // Wichtig! Synchrone version nutzen um Race condition zu verhindern
 let jsondata = fs.readFileSync("./articles.json")
