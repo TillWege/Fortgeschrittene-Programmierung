@@ -9,7 +9,7 @@ var server = http.createServer(app);
 let jsondata = fs.readFileSync("./articles.json")
 let articles = new Map(JSON.parse(jsondata))
 
-server.listen(3000);
+server.listen(3200);
 
 // Event Handeler für den Exit Code aus STDIN
 process.on('SIGINT', () => {
