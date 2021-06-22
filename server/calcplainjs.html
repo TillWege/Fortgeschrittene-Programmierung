@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="n1">
+
+        <select id="op">
+        <option value="add">+</option>
+        <option value="sub">-</option>
+        <option value="mul">*</option>
+        <option value="div">/</option>
+    </select>
+        <input type="text" id="n2"> =
+        <input type="text" id="res" disabled>
+        <input type="button" onclick="calc()" value="Berechnen">
+    </form>
+
+    <script>
+        function calc() {
+            let n1 = document.getElementById('n1').value
+            let n2 = document.getElementById('n2').value
+            let op = document.getElementById('op').value
+
+            var xhttp = new XMLHttpRequest()
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("res").value = this.responseText;
+                    console.log(this.responseText)
+                }
+            };
+            xhttp.open("GET", "http://localhost:3000/" + op + "/" + n1 + "/" + n2, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

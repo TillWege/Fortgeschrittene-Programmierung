@@ -1,0 +1,40 @@
+[
+    [-1,
+        {
+            "id": "-1",
+            "heading": "Placeholder Überschrift",
+            "author": "Placeholder Author",
+            "publishDate": "2021-06-21T13:16:18.249Z",
+            "description": "Placeholder Beschreibung",
+            "image": "/assets/image.jpg",
+            "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "tags": ["Placeholdertag"]
+        }
+    ],
+    [
+        1,
+        {
+            "id": "1",
+            "heading": "Überschrift1",
+            "author": "Author1",
+            "publishDate": "2021-06-21T13:16:18.249Z",
+            "description": "Beschreibung1",
+            "image": "/assets/image.jpg",
+            "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "tags": ["Tag1", "Tag2"]
+        }
+    ],
+    [
+        2,
+        {
+            "id": "2",
+            "heading": "Überschrift2",
+            "author": "Author2",
+            "publishDate": "2021-06-21T13:16:18.249Z",
+            "description": "Beschreibung2",
+            "image": "/assets/image.jpg",
+            "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "tags": ["Tag2", "Tag3"]
+        }
+    ]
+]
