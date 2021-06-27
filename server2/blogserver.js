@@ -32,7 +32,7 @@ app.get('/articles', (req, res) => {
     if (!((query == undefined) || (query == ''))) {
         tempmap = getArticlesByQuery(query, tempmap)
     }
-    if (!((tag == undefined) || (query == ''))) {
+    if (!((tag == undefined) || (tag == ''))) {
         tempmap = getArticlesByTag(tag, tempmap)
     }
     res.contentType('application/json').status(200).send(JSON.stringify([...tempmap]))
