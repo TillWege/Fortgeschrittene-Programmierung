@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors())
 var server = http.createServer(app);
 // Wichtig! Synchrone version nutzen um Race condition zu verhindern
-let jsondata = fs.readFileSync("./articles.json")
+let jsondata = fs.readFileSync("C:\\Uni\\SemesterII\\Web\\server2\\articles.json")
 let articles = new Map(JSON.parse(jsondata))
 
 server.listen(3200);
@@ -28,12 +28,16 @@ process.on('SIGINT', () => {
 app.get('/articles', (req, res) => {
     let query = req.query.query;
     let tag = req.query.tag;
+    let month = req.query.month;
     let tempmap = articles;
     if (!((query == undefined) || (query == ''))) {
         tempmap = getArticlesByQuery(query, tempmap)
     }
     if (!((tag == undefined) || (tag == ''))) {
         tempmap = getArticlesByTag(tag, tempmap)
+    }
+    if (!((month == undefined) || (month == ''))) {
+        tempmap = getArticlesByMonth(month, tempmap)
     }
     res.contentType('application/json').status(200).send(JSON.stringify([...tempmap]))
 
@@ -63,6 +67,28 @@ app.get('/tags', (req, res) => {
     })
     res.contentType('application/json').status(200).send(JSON.stringify([...tagmap]))
 })
+
+app.get('/months', (req, res) => {
+    let r = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    articles.forEach((value) => {
+        r[new Date(value.publishDate).getMonth()]++
+    })
+    res.contentType('application/json').status(200).send(r)
+})
+
+app.get('/login', (req, res) => {
+    let usr = req.query.usr;
+    let pwd = req.query.pwd;
+
+    if ((usr == 'User') && (pwd == 'User')) {
+        res.contentType('application/json').status(200).send(JSON.stringify({ success: true, state: 1 }))
+    } else if ((usr == 'Admin') && (pwd == 'Admin')) {
+        res.contentType('application/json').status(200).send(JSON.stringify({ success: true, state: 2 }))
+    } else {
+        res.contentType('application/json').status(200).send(JSON.stringify({ success: false, state: 0 }))
+    }
+})
+
 
 app.get('*', (req, res) => {
     res.contentType('text/html').status(200).send('Hier läuft ein Blog Server');
@@ -135,6 +161,16 @@ function getArticlesByQuery(query, map) {
     let newMap = new Map()
     map.forEach((value, key) => {
         if (value.author.includes(query) || value.description.includes(query) || value.heading.includes(query) || value.text.includes(query)) {
+            newMap.set(key, value)
+        }
+    })
+    return newMap
+}
+
+function getArticlesByMonth(month, map) {
+    let newMap = new Map()
+    map.forEach((value, key) => {
+        if (new Date(value.publishDate).getMonth() == month) {
             newMap.set(key, value)
         }
     })
