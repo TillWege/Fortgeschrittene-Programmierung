@@ -99,7 +99,7 @@ app.post('/articles', (req, res) => {
             text: req.body.text,
             tags: req.body.tags
         })
-        res.contentType('application/json').status(200).send(JSON.stringify({ success: true }))
+        res.contentType('application/json').status(200).send(JSON.stringify({ success: true, id: id }))
     } catch (error) {
         res.contentType('application/json').status(400).send(JSON.stringify({ success: false }))
     }
