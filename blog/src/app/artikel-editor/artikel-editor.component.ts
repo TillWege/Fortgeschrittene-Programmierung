@@ -48,6 +48,9 @@ export class ArtikelEditorComponent implements OnInit {
     this.service.uploadImage(this.fileToUpload!).subscribe(result => {
       if(result.success){
         this.artikel.image = result.path.split('\\')[1]
+        if(this.artikel.image==undefined){ // Workaround wenn der Server auf linux läuft
+          this.artikel.image = result.path.split('/')[1]
+        }
       }else{
         window.alert("Beim upload ist ein Fehler aufgetreten")
       }

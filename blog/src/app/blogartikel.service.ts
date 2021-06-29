@@ -9,8 +9,8 @@ import { LoginStates } from './data';
 })
 export class BlogartikelService {
 
-  //url = "http://164.68.105.78:3200/";
-  private url = "http://localhost:3200/"
+  private url = "http://164.68.105.78:3200/";
+  //private url = "http://localhost:3200/"
   listener!: UpdateComponentListener[];
   loginState: LoginStates = LoginStates.Anon;
   constructor(private http: HttpClient) {

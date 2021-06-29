@@ -22,7 +22,7 @@
         <div class="input-group-prepend">
             <div class="input-group-text">Bild</div>
         </div>
-        <input type="file" #fileInput (change)="handleFileInput(fileInput.files!)" />
+        <input type="file" #fileInput accept="image/*" (change)="handleFileInput(fileInput.files!)" />
     </div>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
