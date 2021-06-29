@@ -14,6 +14,18 @@
     </div>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
+            <div class="input-group-text">Datum</div>
+        </div>
+        <input type="date" class="form-control" name="dateinput" [(ngModel)]="this.datestring">
+    </div>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Bild</div>
+        </div>
+        <input type="file" #fileInput (change)="handleFileInput(fileInput.files!)" />
+    </div>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
             <div class="input-group-text">Beschreibung</div>
         </div>
         <textarea class="form-control" name="descriptioninput" [(ngModel)]="artikel.description" rows="3"></textarea>
@@ -27,11 +39,11 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">Tags (Kommagetrennt)</div>
             </div>
-            <input type="text" class="form-control" name="taginput">
+            <input type="text" class="form-control" name="taginput" [(ngModel)]="this.tagsstring">
         </div>
         <div class="form-group">
             <input type="file" class="form-control-file" name="imginput">
         </div>
-        <button type="submit" class="btn btn-primary">Veröffentlichen</button>
+        <a type="submit" class="btn btn-primary" (click)="updateArticle()">Veröffentlichen</a>
     </div>
 </form>

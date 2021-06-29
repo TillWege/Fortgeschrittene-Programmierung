@@ -1,32 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Artikel } from '../artikel';
+import { Component, OnInit } from '@angular/core';
+import { BlogartikelService } from '../blogartikel.service';
 import { Months } from '../data';
+import { UpdateComponentListener } from '../update-component-listener';
 
 @Component({
   selector: 'app-monthlist',
   templateUrl: './monthlist.component.html',
   styleUrls: ['./monthlist.component.css']
 })
-export class MonthlistComponent implements OnInit {
+export class MonthlistComponent implements OnInit, UpdateComponentListener {
 
   Months = Months;
-  constructor() { }
-  @Input() ArtikelList?: Map<Number,Artikel>;
+  MonthCounts = [0,0,0,0,0,0,0,0,0,0,0,0]
+  constructor(private service: BlogartikelService) { }
   ngOnInit(): void {
+    this.service.addUpdateComponentListener(this)
+    this.reload();
   }
 
-  GetNumOfArticlesInMonth(Month: String): number {
-    let Result = 0;
-    this.ArtikelList?.forEach((Value, Key)=>{
-      if(Key == -1){  // Placeholder Artikel ignorieren
-        return;
-      }
-      if(Months[(Value.publishDate.getMonth())]==Month){
-        Result++;
-      }
+  reload(){
+    this.service.getMonths().subscribe((newCounts)=>{
+      this.MonthCounts = newCounts;
     })
-
-    return Result;
   }
-
 }

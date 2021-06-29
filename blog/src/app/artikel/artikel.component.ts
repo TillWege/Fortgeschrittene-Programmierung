@@ -1,7 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Artikel } from '../artikel';
-import { ArtikelMap } from '../data';
+import { Artikel, Placeholder } from '../artikel';
 import { ActivatedRoute } from '@angular/router';
+import { BlogartikelService } from '../blogartikel.service';
+import { LoginStates } from '../data';
 
 @Component({
   selector: 'app-artikel',
@@ -16,9 +17,10 @@ export class ArtikelComponent implements OnInit {
   @Input() showFull!: boolean;
 
   artikel!: Artikel;
-  constructor(private route: ActivatedRoute) {  }
+  constructor(private route: ActivatedRoute, private service: BlogartikelService) {  }
 
   ngOnInit(): void {
+    this.artikel = Placeholder;
     if(this.showFull==undefined){
       if(this.route.snapshot.paramMap.get('display')=="compact"){
         this.showFull = false;
@@ -29,11 +31,34 @@ export class ArtikelComponent implements OnInit {
     if(this.artikelid === undefined){
       this.artikelid = parseInt(this.route.snapshot.paramMap.get('id')??'-1')
     }
-    if(ArtikelMap.has(this.artikelid)){
-      this.artikel = ArtikelMap.get(this.artikelid)!
-    }else{
-      this.artikel = ArtikelMap.get(-1)!
-    }
+    this.service.getArticleByID(this.artikelid).subscribe((pArtikel)=>{
+      //Date Type Fixen
+      pArtikel.publishDate = new Date(pArtikel.publishDate)
+      this.artikel = pArtikel;
+
+    })
+  }
+
+  isAdmin():Boolean{
+    return this.service.loginState==LoginStates.Admin;
+  }
+
+  isUser():Boolean{
+    return this.service.loginState>=LoginStates.User;
+  }
+
+  getImagePath(): string{
+    let a = this.service.getServerURL()+this.artikel.image
+    console.log(a)
+    return a
+  }
+
+  delete(){
+    this.service.deleteArticleByID(this.artikel.id).subscribe((result:any)=>{
+      if(!result.success){
+        window.alert("Es ist ein Fehler aufgetreten")
+      }
+    })
   }
 
 }

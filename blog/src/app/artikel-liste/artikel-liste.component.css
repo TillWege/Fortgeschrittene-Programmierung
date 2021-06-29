@@ -1,0 +1,14 @@
+.Buttonbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filter {
+    width: 100%;
+    display: flex
+}
+
+.card {
+    width: 100%
+}

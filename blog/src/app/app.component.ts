@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ArtikelMap } from './data';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { ArtikelMap } from './data';
 })
 export class AppComponent {
   title = 'blog';
-  ArtikelMap = ArtikelMap;
 }

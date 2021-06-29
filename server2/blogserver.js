@@ -2,10 +2,17 @@ var fs = require('fs');
 var http = require('http');
 var express = require('express');
 var cors = require('cors')
+const multipart = require('connect-multiparty');
 
 var app = express();
 app.use(express.json())
 app.use(cors())
+app.use(express.static(__dirname + '/assets'));
+
+const multipartMiddleware = multipart({
+    uploadDir: './assets'
+});
+
 var server = http.createServer(app);
 // Wichtig! Synchrone version nutzen um Race condition zu verhindern
 let jsondata = fs.readFileSync("C:\\Uni\\SemesterII\\Web\\server2\\articles.json")
@@ -129,6 +136,10 @@ app.post('/articles', (req, res) => {
     } catch (error) {
         res.contentType('application/json').status(400).send(JSON.stringify({ success: false }))
     }
+})
+
+app.post('/image', multipartMiddleware, (req, res) => {
+    res.contentType('application/json').status(200).send(JSON.stringify({ success: true, path: req.files.uploads[0].path }))
 })
 
 app.delete('/article/:id', (req, res) => {

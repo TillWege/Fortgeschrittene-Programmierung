@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArtikelEditorComponent } from './artikel-editor/artikel-editor.component';
 import { ArtikelListeComponent } from './artikel-liste/artikel-liste.component';
+import { ArtikelShareComponent } from './artikel-share/artikel-share.component';
 import { ArtikelComponent } from './artikel/artikel.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { ImpressumComponent } from './impressum/impressum.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'copyright', component: CopyrightComponent},
   {path: 'article/:id', component: ArtikelComponent},
   {path: 'edit/:id', component: ArtikelEditorComponent},
+  {path: 'share/:id', component: ArtikelShareComponent},
   {path: '**', component: PagenNotFoundComponent}
 ];
 

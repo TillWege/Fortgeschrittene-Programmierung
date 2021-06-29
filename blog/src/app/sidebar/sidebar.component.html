@@ -1,13 +1,19 @@
 <aside>
-    <form action="login.html">
+    <form onsubmit="return false">
+        <div class="form-group row" *ngIf="isAdmin()"><label for="serverpath" class="col-sm-3 col-form-label">Serverpfad</label>
+            <div class="col-sm-7"><input type="text" class="form-control" name="serverpath" placeholder="Serverpfad" [(ngModel)]="this.Serverpath" (ngModelChange)="updateServer()"></div>
+        </div>
         <div class="form-group row"><label for="usernameinput" class="col-sm-3 col-form-label">Benutzername</label>
-            <div class="col-sm-7"><input type="text" class="form-control" id="usernameinput" placeholder="Benutzername"></div>
+            <div class="col-sm-7"><input type="text" class="form-control" name="usernameinput" placeholder="Benutzername" [(ngModel)]="this.Username"></div>
         </div>
         <div class="form-group row"><label for="passwordinput" class="col-sm-3 col-form-label">Passwort</label>
-            <div class="col-sm-7"><input type="password" class="form-control" id="passwordinput" placeholder="Passwort"></div>
+            <div class="col-sm-7"><input type="password" class="form-control" name="passwordinput" placeholder="Passwort" [(ngModel)]="this.Password"></div>
         </div>
         <div class="col">
-            <div class="form-group row"><button type="submit" class="btn btn-outline-primary">Login</button></div>
+            <div class="form-group row">
+                <a type="submit" class="btn btn-outline-primary" (click)="doLogin()">Login</a>
+                <a type="submit" class="btn btn-outline-danger" *ngIf="this.loggedin" (click)="doLogout()" style="margin-left: 10px">Ausloggen</a>
+            </div>
         </div>
     </form>
     <form action="suchergebnis.html">
@@ -18,6 +24,6 @@
             <button [routerLink]="['/articles', { query: this.Query }]" class="btn btn-outline-primary" type="submit">Suchen</button>
         </div>
     </form>
-    <app-monthlist [ArtikelList]="ArtikelList"></app-monthlist>
-    <app-tagcloud [ArtikelList]="ArtikelList"></app-tagcloud>
+    <app-monthlist></app-monthlist>
+    <app-tagcloud></app-tagcloud>
 </aside>

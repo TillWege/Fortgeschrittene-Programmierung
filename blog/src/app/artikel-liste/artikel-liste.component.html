@@ -1,11 +1,48 @@
-<form action="artikelNeu.html">
-    <button type="submit" class="btn btn-primary">Neuer Artikel</button>
+<div class="Buttonbox">
+    <a class="btn btn-primary" (click)="newArticle()" style="margin-right: auto;">Neuer Artikel</a>
+    <a class="btn btn-secondary" (click)="setCompact()" style="margin-right: 10px;">Kompakt</a>
+    <a class="btn btn-secondary" (click)="setFull()" style="margin-right: 10px;">Vollstänadig</a>
+    <a class="btn btn-primary" (click)="this.showFilters=!this.showFilters">Filtereinstellungen</a>
+</div>
+<div *ngIf="showFilters">
+    <div class="card-body filter">
+        <div class="card">
+            <div class="card-header" style="display: flex">
+                <h5 class="card-title">Tag</h5>
+                <a class="btn btn-primary" style="margin-left: auto;" (click)="this.TagParam=''">X</a>
+            </div>
+            <div class="card-body">
+                <input type="text" class="form-control" name="Tagparam" style="width: 100%" [(ngModel)]="this.TagParam">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="display: flex">
+                <h5 class="card-title">Suche</h5>
+                <a class="btn btn-primary" style="margin-left: auto;" (click)="this.QueryParam=''">X</a>
+            </div>
+            <div class="card-body">
+                <input type="text" class="form-control" name="Queryparam" style="width: 100%" [(ngModel)]="this.QueryParam">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" style="display: flex">
+                <h5 class="card-title">Monat</h5>
+                <a class="btn btn-primary" style="margin-left: auto;" (click)="this.MonthParam=''">X</a>
+            </div>
+            <div class="card-body">
+                <select style="width: 100%" name="monthselect" [(ngModel)]="this.MonthParam">
+                  <option value="" selected></option>
+                  <option *ngFor="let m of Months; index as i" value={{i}}>{{m}}</option>
+                </select>
+            </div>
+        </div>
 
-    <a (click)="setCompact()">Kompakt</a> |
-    <a (click)="setFull()">Vollstänadig</a>
-
-
-</form>
+    </div>
+    <a class="btn btn-primary" (click)="dofilter()" style="margin: 0 auto; display: block;">Filtern</a>
+</div>
 <div class="ArtikelListe">
-    <app-artikel *ngFor="let a of ArtikelMap | keyvalue" [artikelid]="a.key" [showFull]="this.ShowFull"></app-artikel>
+    <div *ngFor="let a of ArtikelMap | keyvalue">
+        <hr>
+        <app-artikel [artikelid]="a.key" [showFull]="this.ShowFull"></app-artikel>
+    </div>
 </div>

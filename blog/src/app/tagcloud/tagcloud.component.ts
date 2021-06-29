@@ -1,39 +1,43 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Artikel } from '../artikel';
+import { BlogartikelService } from '../blogartikel.service';
+import { UpdateComponentListener } from '../update-component-listener';
 
 @Component({
   selector: 'app-tagcloud',
   templateUrl: './tagcloud.component.html',
   styleUrls: ['./tagcloud.component.css']
 })
-export class TagcloudComponent implements OnInit {
+export class TagcloudComponent implements OnInit,UpdateComponentListener {
 
-  constructor() { }
+  constructor(private service: BlogartikelService) {
 
-  @Input() ArtikelList?: Map<Number,Artikel>;
-  TagList!: Map<String, Number>;
+  }
+
+  TagList!: Map<String, number>;
   Highest!: Number;
 
   ngOnInit(): void {
-    this.TagList = new Map();
-    this.Highest = 1;
-    this.ArtikelList?.forEach((Value)=>{
-      Value.tags.forEach((Tag)=>{
-        if(this.TagList.has(Tag)){
-          let a = this.TagList.get(Tag) ?? 0;
-          this.TagList.set(Tag,a.valueOf()+1);
-          if((a.valueOf()+1)>this.Highest){
-            this.Highest = a.valueOf()+1;
-          }
-        }else{
-          this.TagList.set(Tag,1);
+    this.TagList = new Map<String, number>();
+    this.service.addUpdateComponentListener(this);
+    this.Highest = 0;
+    this.reload();
+  }
+
+  GetFontsizeOfTag(Tag: String): String{
+    let n = this.TagList.get(Tag) ?? 1;
+    return String((n / this.Highest.valueOf()) * 30)+'px';
+  }
+
+  reload(){
+    this.service.getTags().subscribe((pTagList)=>{
+      this.TagList = new Map<String, number>(pTagList)
+      this.TagList.forEach((value)=>{
+        if(value>this.Highest){
+          this.Highest = value;
         }
       })
     })
   }
 
-  GetFontsizeOfTag(Tag: String): String{
-    let n = this.TagList.get(Tag)?.valueOf() ?? 1;
-    return String((n / this.Highest.valueOf()) * 30)+'px';
-  }
 }
